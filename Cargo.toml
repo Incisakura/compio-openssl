@@ -1,0 +1,12 @@
+[package]
+name = "compio-openssl"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+compio = { version = "0.14", features = ["io", "io-compat"] }
+openssl = "0.10"
+
+[dev-dependencies]
+compio = { version = "0.14", features = ["macros"] }
+rand = "0.9"
