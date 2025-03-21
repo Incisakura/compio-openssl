@@ -32,16 +32,12 @@ impl<S: AsyncRead + AsyncWrite> SslStream<S> {
     }
 
     #[inline(always)]
-    pub fn get_ssl(&self) -> &SslRef {
+    pub fn ssl(&self) -> &SslRef {
         self.stream.ssl()
     }
 
     pub async fn accept(&mut self) -> io::Result<()> {
         self.ssl_async_do(|s| s.accept()).await
-    }
-
-    pub async fn handshake(&mut self) -> io::Result<()> {
-        self.ssl_async_do(|s| s.do_handshake()).await
     }
 
     pub async fn connect(&mut self) -> io::Result<()> {
