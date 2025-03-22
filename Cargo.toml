@@ -6,7 +6,7 @@ edition = "2024"
 [dependencies]
 compio = { version = "0.14", features = ["io", "io-compat"] }
 openssl = "0.10"
+openssl-sys = "0.9"
 
 [dev-dependencies]
 compio = { version = "0.14", features = ["macros"] }
-rand = "0.9"
