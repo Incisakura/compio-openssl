@@ -8,7 +8,7 @@ use openssl::ssl::{Ssl, SslAcceptor, SslConnector, SslFiletype, SslMethod, SslVe
 
 use super::SslStream;
 
-const TEST_PAYLOAD: &'static [u8] = include_bytes!("../README.md");
+const TEST_PAYLOAD: &[u8] = include_bytes!("../README.md");
 
 #[compio::test]
 async fn self_test() {
@@ -40,6 +40,7 @@ async fn self_test() {
     server_task.await.unwrap();
 }
 
+#[allow(clippy::zombie_processes)]
 #[compio::test]
 async fn client_test() {
     let mut child = Command::new("bash")
@@ -74,6 +75,7 @@ async fn client_test() {
     assert_eq!(&body[header.len()..], TEST_PAYLOAD);
 }
 
+#[allow(clippy::zombie_processes)]
 #[compio::test]
 async fn server_test() {
     let listener = TcpListener::bind((Ipv4Addr::LOCALHOST, 10445)).await.unwrap();
