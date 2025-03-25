@@ -1,5 +1,10 @@
 [package]
 name = "compio-openssl"
+license = "MIT"
+description = "A compio asynchronous stream of OpenSSL stream"
+homepage = "https://github.com/Incisakura/compio-openssl"
+repository = "https://github.com/Incisakura/compio-openssl"
+readme = "README.md"
 version = "0.1.0"
 edition = "2024"
 
